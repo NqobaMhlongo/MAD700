@@ -1,101 +1,86 @@
-Smart Pantry Manager Project
+# Smart Pantry Manager
 
-1.Project Description
+## 1. Project Overview
+Smart Pantry Manager is an Android application developed in Java using XML layouts. Designed as a practical mobile solution, the app enables users to organize household ingredients, monitor expiration dates, and discover recipes that match their current inventory. The primary goal of the application is to reduce food waste and help users make the most of their available food resources.
 
-Smart Pantry Manager is an Android application using the Java language and xml layout in this practical assignment.
+---
 
-The app lets users organize the ingredients that they already have in their homes, 
-keep track of the expiration dates and find recipes they can cook with the items that are currently in their pantry. 
-It is primarily used to minimize food wastage and optimize the available food resources.
+## 2. Key Features
 
-2. Features
+### Pantry Management
+* **Add Ingredients:** Input items with details including name, quantity, unit, and optional expiration date.
+* **Input Validation:** Validates ingredient entries prior to saving.
+* **View Inventory:** Clear overview of all items currently available in the pantry.
+* **Manage Items:** Easily edit or delete ingredient records as inventory changes.
 
-Pantry Management
-Add pantry items including the name, quantity, unit, and (optional) expiry date.
-- Sees what ingredients are available in the pantry.
-- Edit ingredient details.
-- Delete ingredients.
-- Checks the ingredients that the user entered before they are saved.
+### Recipe Collection
+* **Preloaded Recipes:** Browse a library of pre-configured recipes.
+* **Recipe Details:** View complete ingredient lists and step-by-step preparation instructions.
+* **Local Caching:** Store recipe data locally using SQLite.
 
-Recipe Collection
-View a library of preloaded recipes.
-- Reads the list of ingredients and directions for the recipe.
-- Locally cache recipe information in SQLite.
+### Suggested Recipes & Matching Logic
+* **Smart Recommendations:** Suggests recipes that can be made using available pantry ingredients.
+* **Strict Matching:** Filters out recipes that require missing ingredients.
+* **Quantity & Unit Handling:** Evaluates ingredient quantities and reconciles common unit differences.
+* **Name Normalization:** Handles basic variations in ingredient names (such as singular vs. plural forms).
 
-Suggested Recipes
-- Find recipes that can be prepared and made using the available pantry ingredients.
-- Has strict ingredient matching (recipes that cannot be created because unavailable ingredients are not included).
-- Make comparisons between quantities and justify some typical differences between units.
-- Deal with easy variations of ingredient names such as singular and plural.
+### Settings & Preferences
+* **Unit Preferences:** Switch between Metric and Imperial measurement systems.
+* **Expiration Alerts:** Configure custom notification times for expiring items.
 
-Settings
-- Select Metric or Imperial units preference.
-- Set up reminder times for expirations.
+### Data Persistence
+* **Offline Storage:** Saves pantry inventory and recipe data in a local SQLite database.
+* **Session Persistence:** Ensures all data remains saved even when the app is closed and restarted.
 
-Data Persistence
-- Store local recipe information and pantry ingredients in a local SQLite database.
-- Persist information even when app closes and reopens.
+---
 
-3. Technologies Used
+## 3. Technologies Used
 
-- Programming language: Java
-- Android version: 10.1
-- User interface: XML layouts
-- Database: SQLite
-- Database helper: SQLiteOpenHelper
-  Adapters are used with RecyclerView to implement dynamic lists.To implement dynamic lists, use RecyclerView with a custom adapter.
-  Android Activities and Intents –Navigation
-  Version control was introduced with Git and GitHub.Version control: Git and GitHub.
+* **Programming Language:** Java
+* **Target Android Version:** 10.1
+* **User Interface:** XML Layouts & `RecyclerView` with custom adapters
+* **Navigation:** Android Activities & Intents
+* **Database & Persistence:** SQLite managed via `SQLiteOpenHelper`
+* **Version Control:** Git & GitHub
 
-4. Database Choice
+---
 
-SQLite was chosen because it is a local persistent store that doesn't need a separate server or Internet connection.
+## 4. Database Architecture
 
-SQLite is used for the app to cache pantry ingredients and recipe information. 
-The database is managed by SQLiteOpenHelper to create and upgrade the database and the data operations are handled by repository classes.
+SQLite was chosen as the primary database solution because it provides a reliable, local persistent store that operates without requiring a remote server or internet connection. 
 
-It is suitable for an application that would have to manage a user's personal pantry in their Android phone.
+The app utilizes SQLite to cache pantry inventory and recipe records locally. Schema creation and upgrades are handled using `SQLiteOpenHelper`, while data operations are encapsulated within dedicated Repository classes. This architecture is lightweight and ideal for managing personal pantry data directly on an Android device.
 
-5. Project Structure
+---
 
-The project separates its functionality into different classes and packages.
+## 5. Project Structure
 
-AddEditIngredientActivity.java — adds and edits ingredients to the pantry.
-- PantryActivity.java — shows ingredients of the pantry.
-- PantryAdapter.java — adapts data from pantry to be used in the list interface.
-- RecipeDetailActivity.java - This class displays the ingredients and instructions of the recipe.
-- RecipeMatcher.java - Looks up which recipes can be made with the available ingredients.
-- RecipeRepository.java – Used to retrieve recipe information.
-- PantryRepository.java — provides operations for the pantry data.
-- The DatabaseHelper.java - creates and upgrades the SQLite database.
-- UnitConverter.java — converts quantities displayed in metric or imperial units.
-- SettingsActivity.java — deals with preferences for the application.
+The codebase is organized into modular classes and packages based on functionality:
 
-6. Requirements
+* `AddEditIngredientActivity.java` — Manages adding and editing pantry ingredients.
+* `PantryActivity.java` — Displays the list of current pantry ingredients.
+* `PantryAdapter.java` — Binds pantry data to the `RecyclerView` user interface.
+* `RecipeDetailActivity.java` — Displays ingredients and step-by-step instructions for selected recipes.
+* `RecipeMatcher.java` — Contains logic to evaluate available ingredients against recipe requirements.
+* `RecipeRepository.java` — Handles database operations and queries for recipe records.
+* `PantryRepository.java` — Handles database CRUD operations for pantry data.
+* `DatabaseHelper.java` — Manages SQLite database creation, schema setup, and version upgrades.
+* `UnitConverter.java` — Performs conversions between Metric and Imperial measurements.
+* `SettingsActivity.java` — Manages user preferences and app settings.
 
-The following is required to open and operate the project:
+---
 
-- Android Studio.
-- Android SDK installed in Android Studio which is compatible.
-- An Android emulator or an Android device that is compatible.
+## 6. Requirements
 
-7. Set up and run instructions
+To open and run this project, ensure you have the following installed:
+* **Android Studio**
+* **Compatible Android SDK** (installed via Android Studio)
+* **Android Emulator** or a compatible physical Android device
 
-- Download the repository from GitHub, or clone it.
-- Open Android Studio.
-- Click on Open, and navigate to the `SmartPantryManager` project folder.
-- Wait for the Gradle project to be synced.
-- Add any missing Android SDK components. 
-- Choose an Android emulator or plug in a physical device that is compatible.
-- Run the application from the Android Studio with the `Run` button.
+---
 
-A local sqlite database is used for the application. The device is used to store pantry ingredients and recipes.
+## 7. Setup & Run Instructions
 
-8. GitHub Repository
-
-Repository: https://github.com/hamzah0103/SmartPantryManager
-
-9. Assignment Information
-
-This assignment Smart Pantry Manager Project is an example of building an Android application by using Java, XML layouts, Activities and Intents, adapters, SQLite persistence, 
-input validation, and recipe-matching logic.
+1. **Clone or Download:** Clone the repository or download the source code files.
+   ```bash
+   git clone [https://github.com/NqobaMhlongo/MAD700.git](https://github.com/NqobaMhlongo/MAD700.git)
