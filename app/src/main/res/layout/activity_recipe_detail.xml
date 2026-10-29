@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FA"
+    android:background="#F4F6F3"
     android:fillViewport="true">
 
     <LinearLayout
@@ -11,66 +12,111 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <!-- Recipe Header Section -->
         <TextView
             android:id="@+id/tvRecipeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Recipe Name"
-            android:textColor="#091D39"
+            android:textColor="#1B3B2B"
             android:textSize="28sp"
+            android:fontFamily="sans-serif-medium"
             android:textStyle="bold"
-            android:paddingBottom="8dp" />
+            android:paddingBottom="4dp" />
 
         <TextView
             android:id="@+id/tvRecipeDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Recipe description"
-            android:textColor="#555555"
-            android:textSize="16sp"
+            android:textColor="#5A6E60"
+            android:textSize="15sp"
             android:paddingBottom="20dp" />
 
-        <TextView
+        <!-- Ingredients Card Container -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Required Ingredients"
-            android:textColor="#091D39"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp" />
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginBottom="12dp">
 
-        <TextView
-            android:id="@+id/tvRecipeIngredients"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Required Ingredients"
+                    android:textColor="#1B3B2B"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvRecipeIngredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2D4A3E"
+                    android:textSize="15sp"
+                    android:lineSpacingExtra="6dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Cooking Instructions Card Container -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#333333"
-            android:textSize="16sp"
-            android:lineSpacingExtra="6dp"
-            android:paddingBottom="24dp" />
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginBottom="16dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cooking Instructions"
-            android:textColor="#091D39"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-        <TextView
-            android:id="@+id/tvRecipeInstructions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#333333"
-            android:textSize="16sp"
-            android:lineSpacingExtra="6dp"
-            android:paddingBottom="20dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cooking Instructions"
+                    android:textColor="#1B3B2B"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="8dp" />
 
+                <TextView
+                    android:id="@+id/tvRecipeInstructions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2D4A3E"
+                    android:textSize="15sp"
+                    android:lineSpacingExtra="6dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Back Button -->
         <Button
             android:id="@+id/btnBackToRecipes"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Back to Suggested Recipes" />
+            android:layout_height="54dp"
+            android:text="Back to Suggested Recipes"
+            android:textColor="#5A6E60"
+            android:textSize="16sp"
+            app:strokeColor="#C5D1C8"
+            app:cornerRadius="12dp"
+            android:layout_marginTop="8dp" />
 
     </LinearLayout>
 

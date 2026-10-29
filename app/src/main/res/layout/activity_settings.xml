@@ -1,106 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FA"
+    android:background="#F4F6F3"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="20dp">
 
+        <!-- Header Section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Settings"
-            android:textColor="#091D39"
+            android:textColor="#1B3B2B"
             android:textSize="28sp"
+            android:fontFamily="sans-serif-medium"
             android:textStyle="bold"
-            android:paddingBottom="8dp" />
+            android:paddingBottom="4dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Personalise your Smart Pantry Manager experience."
-            android:textColor="#555555"
-            android:textSize="16sp"
-            android:paddingBottom="28dp" />
+            android:textColor="#5A6E60"
+            android:textSize="15sp"
+            android:paddingBottom="20dp" />
 
-        <TextView
+        <!-- Settings Card Container -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Preferred Measurement System"
-            android:textColor="#091D39"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp" />
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginBottom="16dp">
 
-        <RadioGroup
-            android:id="@+id/rgUnitPreference"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/rbMetric"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Metric (g, kg, ml, litres)" />
+                android:orientation="vertical"
+                android:padding="20dp">
 
-            <RadioButton
-                android:id="@+id/rbImperial"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Imperial (oz, lb, cups, fl oz)" />
+                <!-- Measurement System Section -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Preferred Measurement System"
+                    android:textColor="#1B3B2B"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:paddingBottom="8dp" />
 
-        </RadioGroup>
+                <RadioGroup
+                    android:id="@+id/rgUnitPreference"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#D5DCE5"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp" />
+                    <RadioButton
+                        android:id="@+id/rbMetric"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Metric (g, kg, ml, litres)"
+                        android:textColor="#2D4A3E"
+                        android:paddingVertical="6dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Expiry Reminders"
-            android:textColor="#091D39"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+                    <RadioButton
+                        android:id="@+id/rbImperial"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Imperial (oz, lb, cups, fl oz)"
+                        android:textColor="#2D4A3E"
+                        android:paddingVertical="6dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Enable reminders for ingredients approaching their expiry date."
-            android:textColor="#555555"
-            android:textSize="14sp"
-            android:paddingTop="6dp"
-            android:paddingBottom="8dp" />
+                </RadioGroup>
 
-        <Switch
-            android:id="@+id/swExpiryReminders"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Enable expiry reminders"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E5EDDF"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp" />
 
+                <!-- Expiry Reminders Section -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Expiry Reminders"
+                    android:textColor="#1B3B2B"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enable reminders for ingredients approaching their expiry date."
+                    android:textColor="#5A6E60"
+                    android:textSize="14sp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="8dp" />
+
+                <Switch
+                    android:id="@+id/swExpiryReminders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enable expiry reminders"
+                    android:textColor="#2D4A3E"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Save Button -->
         <Button
             android:id="@+id/btnSaveSettings"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:text="Save Settings"
-            android:layout_marginTop="28dp" />
+            android:backgroundTint="#1B3B2B"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:cornerRadius="12dp"
+            android:layout_marginTop="4dp" />
 
+        <!-- Back Button -->
         <Button
             android:id="@+id/btnSettingsBack"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:text="Back to Home"
+            android:textColor="#5A6E60"
+            android:textSize="16sp"
+            app:strokeColor="#C5D1C8"
+            app:cornerRadius="12dp"
             android:layout_marginTop="8dp" />
 
     </LinearLayout>
